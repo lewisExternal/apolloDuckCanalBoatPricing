@@ -1,0 +1,5 @@
+numpy
+six
+pandas
+catboost==0.26
+Flask==1.1.1
