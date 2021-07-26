@@ -190,7 +190,7 @@ def archive_model():
     # move file 
     for file_name in files:
         if "cat_boost_model" in file_name:
-            shutil.move("./flask/"+ file_name, './archived_models/'+file_name)
+            shutil.move("./flask/"+ file_name, './'+file_name)
             print( get_time_stamp() + ' - INFO - file has been moved: ' + file_name)
 
 def visualise_data(df,df_pre_cleansed,df_cleansed,df_final): 
