@@ -178,7 +178,17 @@ tag_push_image.bat
 
 ### Model Interpretation - SHAP Values 
 
+More information on SHAP values can be seen here:
+
+[https://christophm.github.io/interpretable-ml-book/shap.html](https://christophm.github.io/interpretable-ml-book/shap.html)
+
+The script will save the summary plot to src/modeling/summary_plot.png 
+
 ![alt text](https://github.com/lewisExternal/apolloDuckCanalBoatPricing/blob/main/src/modeling/summary_plot.png?raw=true)
+
+The script will save the beeswarm plot to src/modeling/beeswarm.png 
+
+![alt text](https://github.com/lewisExternal/apolloDuckCanalBoatPricing/blob/main/src/modeling/beeswarm.png?raw=true)
 
 
 ## Requirements
