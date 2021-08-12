@@ -21,6 +21,7 @@ import glob
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pickle
+import shap 
 
 # import scripts 
 from docker_lib import create_and_run_docker
@@ -162,6 +163,20 @@ def fit_cat_boost_model(df_final):
     print(get_time_stamp() + ' RMSE: {:.2f}'.format(rmse))
     print(get_time_stamp() + ' R2: {:.2f}'.format(r2))
 
+    # shap analysis 
+    shap_values = shap.TreeExplainer(model).shap_values(X_train)
+    f1 = shap.summary_plot(shap_values, X_train, plot_type="bar",show=False)
+    plt.savefig("summary_plot.png")
+    plt.clf()
+    explainer = shap.TreeExplainer(model)
+    shap_obj = explainer(X_train)
+    shap.plots.beeswarm(shap_obj,show=False)
+    plt.savefig("beeswarm.png")
+    plt.clf()
+    
+    #for col in cols:
+    #    shap.dependence_plot(col, shap_values, X_train)
+
     # save the model to file 
     save_model(model,train_dataset)
 
@@ -238,7 +253,8 @@ def plot_num_feature(col_name,df_final):
     print(get_time_stamp() + ' - INFO - mean value is: ' + str(df_final[col_name].mean()))
     print(get_time_stamp() + ' - INFO - median value is: ' + str(df_final[col_name].median()))
     sns.scatterplot(data=df_final.sort_values(by=col_name), x=col_name, y="val")
-    plt.show()
+    plt.savefig(col_name+".png")
+    plt.clf()
     print('#################################################')
 
 def add_lookup_value(dff,col_name,lookup_dict):
