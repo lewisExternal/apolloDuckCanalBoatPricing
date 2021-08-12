@@ -176,6 +176,11 @@ tag_push_image.bat
 
 ```
 
+### Model Interpretation - SHAP Values 
+
+![alt text](https://github.com/lewisExternal/apolloDuckCanalBoatPricing/blob/main/src/modeling/summary_plot.png?raw=true)
+
+
 ## Requirements
 
 Requires python 3.8
