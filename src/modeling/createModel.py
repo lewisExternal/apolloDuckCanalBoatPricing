@@ -153,6 +153,7 @@ def fit_cat_boost_model(df_final):
         'l2_leaf_reg': [0.2, 0.5, 1, 3]}
     model.grid_search(grid, train_dataset)
     print( get_time_stamp() + ' - INFO - model has been trained')
+    print('#################################################')
 
     # calculate error 
     pred = model.predict(X_test)
@@ -162,6 +163,13 @@ def fit_cat_boost_model(df_final):
     print("Testing model performance")
     print(get_time_stamp() + ' RMSE: {:.2f}'.format(rmse))
     print(get_time_stamp() + ' R2: {:.2f}'.format(r2))
+
+    # feature importance 
+    print("Feature importance")
+    feature_importances = model.get_feature_importance(train_dataset)
+    feature_names = X_train.columns
+    for score, name in sorted(zip(feature_importances, feature_names), reverse=True):
+        print('{}: {}'.format(name, score))
 
     # shap analysis 
     shap_values = shap.TreeExplainer(model).shap_values(X_train)
