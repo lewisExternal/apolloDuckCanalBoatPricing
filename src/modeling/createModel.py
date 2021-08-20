@@ -141,7 +141,10 @@ def fit_cat_boost_model(df_final):
     categorical_features_indices = [0,3,5,6,8]
     train_dataset = cb.Pool(X_train, y_train, cat_features=categorical_features_indices) 
     test_dataset = cb.Pool(X_test, y_test, cat_features=categorical_features_indices)
-    
+
+    # full dataset 
+    #full_dataset = cb.Pool(X, y, cat_features=categorical_features_indices)
+
     # define model 
     model = cb.CatBoostRegressor(loss_function='RMSE')
     
@@ -151,7 +154,8 @@ def fit_cat_boost_model(df_final):
         'learning_rate': [0.03, 0.1],
         'depth': [2, 4, 6, 8],
         'l2_leaf_reg': [0.2, 0.5, 1, 3]}
-    model.grid_search(grid, train_dataset)
+    model.grid_search(grid, train_dataset, cv=5)
+    #print(model.eval_metrics(train_dataset,['RMSE','R2']))
     print( get_time_stamp() + ' - INFO - model has been trained')
     print('#################################################')
 
