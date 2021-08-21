@@ -192,7 +192,7 @@ REF:
 
 The script will save the summary plot to src/modeling/summary_plot.png 
 
-The most significant features of the model can be seen within the below (from the dataset provided). 
+The ranking of the most significant features of the model can be seen within the below (from the dataset provided). 
 
 ![alt text](https://github.com/lewisExternal/apolloDuckCanalBoatPricing/blob/main/src/modeling/summary_plot.png?raw=true)
 
