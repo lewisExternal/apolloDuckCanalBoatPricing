@@ -200,6 +200,18 @@ The script will save the beeswarm plot to src/modeling/beeswarm.png
 
 ![alt text](https://github.com/lewisExternal/apolloDuckCanalBoatPricing/blob/main/src/modeling/beeswarm.png?raw=true)
 
+Shap values can also be used to interpret the relationship between individual features and the target variable.
+
+The relationship between the boat price and boat length split by age can be seen here:
+
+![alt text](https://github.com/lewisExternal/apolloDuckCanalBoatPricing/blob/main/src/modeling/length_shap.png?raw=true)
+
+The relationship between the boat price and boat age split by length can be seen below.
+
+![alt text](https://github.com/lewisExternal/apolloDuckCanalBoatPricing/blob/main/src/modeling/age_shap.png?raw=true)
+
+
+
 
 ## Requirements
 
